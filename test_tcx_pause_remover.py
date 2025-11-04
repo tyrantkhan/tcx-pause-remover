@@ -34,7 +34,7 @@ def test_gap_detection():
 
     assert len(gaps) == 1, f"Expected 1 gap, found {len(gaps)}"
     assert gaps[0].duration_seconds == 298.0, f"Expected 298s gap, got {gaps[0].duration_seconds}s"
-    print("✓ Gap detection test passed")
+    print("[PASS] Gap detection test passed")
 
 
 def test_timestamp_adjustment():
@@ -95,7 +95,7 @@ def test_timestamp_adjustment():
         # Verify TotalTimeSeconds was updated
         assert '<TotalTimeSeconds>3.0</TotalTimeSeconds>' in content, "TotalTimeSeconds not updated"
 
-        print("✓ Timestamp adjustment test passed")
+        print("[PASS] Timestamp adjustment test passed")
 
     finally:
         input_file.unlink()
@@ -127,7 +127,7 @@ def test_no_gaps():
         gaps = remover.detect_gaps(open(input_file).read())
 
         assert len(gaps) == 0, f"Expected no gaps, found {len(gaps)}"
-        print("✓ No gaps test passed")
+        print("[PASS] No gaps test passed")
 
     finally:
         input_file.unlink()
@@ -138,7 +138,7 @@ def test_example_file():
     example_file = Path(__file__).parent / "example.tcx"
 
     if not example_file.exists():
-        print("⚠ Skipping example.tcx test (file not found)")
+        print("[SKIP] Skipping example.tcx test (file not found)")
         return
 
     remover = TCXPauseRemover(gap_threshold_seconds=5.0)
@@ -149,7 +149,7 @@ def test_example_file():
     gaps = remover.detect_gaps(content)
 
     assert len(gaps) > 0, "Expected at least one gap in example.tcx"
-    print(f"✓ Example file test passed (found {len(gaps)} gap(s))")
+    print(f"[PASS] Example file test passed (found {len(gaps)} gap(s))")
 
 
 if __name__ == "__main__":
@@ -160,4 +160,4 @@ if __name__ == "__main__":
     test_no_gaps()
     test_example_file()
 
-    print("\n✅ All tests passed!")
+    print("\n[SUCCESS] All tests passed!")
