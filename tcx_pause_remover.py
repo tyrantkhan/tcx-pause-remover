@@ -107,7 +107,7 @@ class TCXPauseRemover:
         print(f"\nFound {len(self.gaps)} pause(s):")
         total_gap_time = 0.0
         for i, gap in enumerate(self.gaps, 1):
-            print(f"  {i}. {gap.start_time.strftime('%H:%M:%S')} → {gap.end_time.strftime('%H:%M:%S')} "
+            print(f"  {i}. {gap.start_time.strftime('%H:%M:%S')} to {gap.end_time.strftime('%H:%M:%S')} "
                   f"({gap.duration_str})")
             total_gap_time += gap.duration_seconds
 
