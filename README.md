@@ -54,7 +54,7 @@ python3 tcx_pause_remover.py activity.tcx --output cleaned.tcx
 
 ## Requirements
 
-- Python 3.7+
+- Python 3.8+
 - No external dependencies (uses only standard library)
 
 ## Output

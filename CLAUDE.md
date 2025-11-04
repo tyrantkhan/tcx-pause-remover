@@ -11,7 +11,7 @@ TCX Pause Remover - A Python tool that removes pause/gap periods from TCX activi
 **The Solution:** This tool detects gaps in trackpoint timestamps and adjusts all subsequent timestamps to remove pause periods, creating a continuous activity timeline.
 
 **Tech Stack:**
-- Python 3.7+ (uses only standard library, no external dependencies)
+- Python 3.8+ (uses only standard library, no external dependencies)
 - Text-based XML manipulation to preserve formatting
 
 ## Usage
