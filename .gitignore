@@ -215,3 +215,4 @@ test_*.tcx
 
 # macOS
 .DS_Store
+.claude/
