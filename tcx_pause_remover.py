@@ -100,21 +100,21 @@ class TCXPauseRemover:
         self.gaps = self.detect_gaps(content)
 
         if not self.gaps:
-            print("✓ No gaps detected - file already clean")
+            print("No gaps detected - file already clean")
             return
 
         # Report gaps
-        print(f"\n📊 Found {len(self.gaps)} pause(s):")
+        print(f"\nFound {len(self.gaps)} pause(s):")
         total_gap_time = 0.0
         for i, gap in enumerate(self.gaps, 1):
             print(f"  {i}. {gap.start_time.strftime('%H:%M:%S')} → {gap.end_time.strftime('%H:%M:%S')} "
                   f"({gap.duration_str})")
             total_gap_time += gap.duration_seconds
 
-        print(f"\n⏱️  Total pause time: {int(total_gap_time // 60)}m {int(total_gap_time % 60)}s")
+        print(f"\nTotal pause time: {int(total_gap_time // 60)}m {int(total_gap_time % 60)}s")
 
         if dry_run:
-            print("\n🔍 Dry run mode - no files modified")
+            print("\nDry run mode - no files modified")
             return
 
         # Build timestamp replacement map
@@ -168,7 +168,7 @@ class TCXPauseRemover:
             with open(output_file, 'w', encoding='UTF-8') as f:
                 f.write(modified_content)
 
-            print(f"\n✓ Processed TCX written to: {output_file}")
+            print(f"\nProcessed TCX written to: {output_file}")
             print(f"  New duration: {int(actual_duration // 60)}m {int(actual_duration % 60)}s")
             print(f"  Removed: {int(total_gap_time // 60)}m {int(total_gap_time % 60)}s")
 
@@ -207,7 +207,7 @@ Examples:
     args = parser.parse_args()
 
     if not args.input_file.exists():
-        print(f"❌ File not found: {args.input_file}", file=sys.stderr)
+        print(f"ERROR: File not found: {args.input_file}", file=sys.stderr)
         sys.exit(1)
 
     remover = TCXPauseRemover(gap_threshold_seconds=args.pause_threshold)
