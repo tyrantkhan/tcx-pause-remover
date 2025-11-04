@@ -209,6 +209,7 @@ __marimo__/
 # Project-specific
 # TCX test/sample files (keep originals out of repo)
 *.tcx
+!example.tcx
 *_no_pauses.tcx
 *_FIXED.tcx
 test_*.tcx
