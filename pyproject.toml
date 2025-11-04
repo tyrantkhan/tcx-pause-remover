@@ -1,0 +1,14 @@
+[project]
+name = "tcx-pause-remover"
+version = "1.0.0"
+description = "Remove pause/gap periods from TCX files to fix Strava's elapsed time"
+authors = [{name = "Tyrant Khan"}]
+readme = "README.md"
+requires-python = ">=3.7"
+
+[project.scripts]
+tcx-pause-remover = "tcx_pause_remover:main"
+
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
